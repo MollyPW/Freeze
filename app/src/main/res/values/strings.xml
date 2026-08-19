@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Freeze</string>
+    <string name="accessibility_service_description">Freeze lets you show a floating Pause button. Tapping it freezes the screen so you can trace over it, and double-pressing volume unfreezes it.</string>
+</resources>
