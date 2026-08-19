@@ -1,0 +1,43 @@
+# Freeze
+
+An Android accessibility app that freezes the screen so you can trace an image displayed on it without your touches registering — useful as a digital lightbox for tracing photos, art references, or documents directly off the screen.
+
+Built with [Claude Code](https://claude.com/claude-code).
+
+## Features
+
+- **Floating Pause button** — a small draggable button that stays on top of any app
+- **Freeze on tap** — tapping Pause blocks all touch input to the screen, so tracing over it with a finger or stylus doesn't scroll, tap, or otherwise interact with what's underneath
+- **Unfreeze with a long press** — hold one spot on the frozen screen for 5 seconds to unfreeze
+- **Hide the button** — press and hold Pause (without moving it) to dismiss it
+- **Enabled through Accessibility settings** — no persistent background permissions beyond what's needed to draw the overlay and detect touches
+
+## How it works
+
+Freeze is built as an Android [Accessibility Service](https://developer.android.com/guide/topics/ui/accessibility/service). Once enabled, it draws a small transparent overlay window on top of the screen. Tapping Pause expands that overlay to cover the full screen and intercepts all touch events, so nothing underneath receives them. A long press releases the overlay and returns control to the screen below.
+
+## Requirements
+
+- Android 8.0 (API 26) or higher
+- Android Studio, to build and install (not yet published on the Play Store)
+
+## Installation
+
+1. Clone this repository.
+2. Open the project in Android Studio.
+3. Connect your Android device (USB debugging or wireless debugging enabled).
+4. Click **Run** to build and install the app.
+
+## Usage
+
+1. Open the **Freeze** app and tap **Open Accessibility Settings**.
+2. Find **Freeze** in the list and turn it **on**.
+3. A floating **Pause** button will appear on your screen.
+4. **Tap Pause** to freeze the screen — touches will no longer register, so you can trace over it.
+5. **Hold your finger on the frozen screen for 5 seconds** to unfreeze it.
+6. **Press and hold the Pause button itself** to hide it. To bring it back, toggle Freeze off and on again in Accessibility settings.
+
+## Known limitations
+
+- **No hardware button shortcut.** An earlier version supported unfreezing with a double press of the volume button, but this was blocked at the system level on Samsung devices and has been removed. The 5-second long press is the only way to unfreeze.
+- **Not available on the Play Store yet.** Accessibility-service apps face additional review requirements from Google, so for now this must be built and installed manually via Android Studio.
